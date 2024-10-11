@@ -1,10 +1,10 @@
-# Makefile for GitComp
+# Makefile for Secret-Workflow-Companion-Py
 
 # Python interpreter
 PYTHON := python3
 
 # Project name
-PROJECT_NAME := gitcomp
+PROJECT_NAME := pyghm
 
 # Main script
 MAIN_SCRIPT := main.py
@@ -31,7 +31,7 @@ install: $(MAIN_SCRIPT) $(AUTOCOMPLETE_SCRIPT)
 	@echo "" >> $(BASH_PROFILE)
 	@echo "# $(PROJECT_NAME) alias and autocomplete" >> $(BASH_PROFILE)
 	@echo "alias $(PROJECT_NAME)='$(INSTALL_DIR)/$(PROJECT_NAME)'" >> $(BASH_PROFILE)
-	@echo "source $(PWD)/$(AUTOCOMPLETE_SCRIPT)" >> $(BASH_PROFILE)
+	@echo "source $(INSTALL_DIR)/$(AUTOCOMPLETE_SCRIPT)" >> $(BASH_PROFILE)
 	@echo "Installation complete. Please restart your terminal or run 'source $(BASH_PROFILE)' to use the alias."
 
 uninstall:

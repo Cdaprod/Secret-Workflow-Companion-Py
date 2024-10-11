@@ -1,6 +1,6 @@
 #!/bin/bash
 
-_gitcomp_completions() {
+_pyghm_completions() {
     local cur prev opts
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
@@ -29,4 +29,4 @@ _gitcomp_completions() {
     return 0
 }
 
-complete -F _gitcomp_completions gitcomp
+complete -F _pyghm_completions pyghm
