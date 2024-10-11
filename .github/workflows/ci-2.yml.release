@@ -41,3 +41,37 @@ jobs:
       with:
         name: pyghm-cli
         path: ./pyghm.zip
+
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Build CLI Tool
+      run: |
+        chmod +x main.py
+        zip pyghm.zip main.py scripts/autocompletion.sh
+
+    - name: Check if GH_TOKEN is available
+      run: |
+        if [ -z "${{ secrets.GH_TOKEN }}" ]; then
+          echo "GITHUB_TOKEN is not available. Skipping release step."
+          exit 0
+        fi
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: ./pyghm.zip
+        tag_name: ${{ github.ref }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
