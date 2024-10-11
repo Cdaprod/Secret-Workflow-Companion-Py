@@ -72,6 +72,6 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: ./pyghm.zip
-      tag: ${{ github.ref }}
+        tag: ${{ github.ref }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
