@@ -1,5 +1,9 @@
 # GitComp (Secret Workflow Companion)
 
+[![Build and Test pyghm](https://github.com/Cdaprod/Secret-Workflow-Companion-Py/actions/workflows/ci.yml/badge.svg)](https://github.com/Cdaprod/Secret-Workflow-Companion-Py/actions/workflows/ci.yml)
+
+[Alternate Golang Version of this CLI App](https://github.com/cdaprod/secret-workflow-companion-py)
+
 A Python-based command-line interface tool designed to simplify the management of GitHub secrets and workflows, featuring interactive prompts and persistent storage.
 
 ## Features
