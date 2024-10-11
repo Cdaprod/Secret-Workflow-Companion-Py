@@ -1,4 +1,4 @@
-name: CI (Build and Test pyghm)
+name: Build and Test pyghm
 
 on:
   push:
@@ -67,7 +67,6 @@ jobs:
         fi
 
     - name: Create Release
-      if: ${{ secrets.GITHUB_TOKEN != '' }}
       uses: softprops/action-gh-release@v1
       with:
         files: ./pyghm.zip
